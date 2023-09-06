@@ -1,12 +1,7 @@
 ---
 title: "INFO 523 Exercise"
 subtitle: "Exercise 1: Introduction to R Exercise"
-format: 
-  pdf:
-    toc: true
-    number-sections: false
-    colorlinks: true
-
+format: html
 editor: visual
 ---
 
@@ -348,9 +343,16 @@ table(a, g) #I have successfully added factors 'adult' and 'juvenile'
 
 By default, R assumes that both the factors belong to the same entity. Let's consider, in our dataset we have 3 female adult, 2 female juvenile, and 3 male juvenile.
 
-```{r, eval=FALSE}
-a <- factor(c('adult', 'juvenile','adult', 'juvenile','adult', 'juvenile','juvenile'))
-table(a, g)
+```{r}
+tryCatch(
+    {
+    a <- factor(c('adult', 'juvenile','adult', 'juvenile','adult', 'juvenile','juvenile'))
+    table(a, g)
+    },
+    error=function(e) {
+        print(e)
+    }
+)#using a trycatch block to display error
 
 #output: Error in table(a, g) : all arguments must have the same length
 ```
@@ -777,20 +779,52 @@ x
 
 We cannot exclude elements with it's names.
 
-```{r, eval=FALSE}
-(x[-s1]) #results in error
+```{r}
+tryCatch(
+    {
+    (x[-s1])
+    },
+    error=function(e) {
+        print(e)
+    }
+)#using a trycatch block to display error
+#results in error
 ```
 
-```{r, eval=FALSE}
-(x[-"s1"]) #results in error
+```{r}
+tryCatch(
+    {
+    (x[-"s1"])
+    },
+    error=function(e) {
+        print(e)
+    }
+)#using a trycatch block to display error
+#results in error
 ```
 
-```{r, eval=FALSE}
-(x[s1:s7]) #results in error
+```{r}
+tryCatch(
+    {
+    (x[s1:s7]) 
+    },
+    error=function(e) {
+        print(e)
+    }
+)#using a trycatch block to display error
+#results in error
 ```
 
-```{r, eval=FALSE}
-(x[c('s1':'s7')]) #results in error
+```{r}
+tryCatch(
+    {
+    (x[c('s1':'s7')]) 
+    },
+    error=function(e) {
+        print(e)
+    }
+)#using a trycatch block to display error
+#results in error
 ```
 
 ```{r}
