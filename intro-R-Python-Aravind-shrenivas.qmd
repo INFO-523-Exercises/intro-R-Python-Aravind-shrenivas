@@ -1,5 +1,6 @@
 ---
 title: "INFO 523 Exercise"
+author: "Aravind shrenivas Murali"
 subtitle: "Exercise 1: Introduction to R Exercise"
 format: html
 editor: visual
